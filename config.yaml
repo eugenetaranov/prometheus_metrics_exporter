@@ -1,5 +1,4 @@
 ---
-prometheus_url: http://localhost:9090
 cloudwatch_namespace: TEST_NAMESPACE
 
 metrics: # optional, will fecth all metrics if not specified
