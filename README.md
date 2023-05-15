@@ -18,11 +18,17 @@ Before running the Prometheus Metrics Exporter, ensure the following prerequisit
 
 ## Installation
 
-1. Clone the Prometheus Metrics Exporter repository.
-2. Install the required dependencies using the package manager of your choice.
-3. Configure the exporter by updating the configuration file with your Prometheus and CloudWatch settings.
-4. Set up the cronjob to execute the exporter at the desired intervals.
-5. Start the cronjob, and the exporter will begin syncing metrics from Prometheus to CloudWatch.
+1. Clone the image from https://hub.docker.com/repository/docker/eugenetaranov/prometheus_metrics_exporter.
+2. Create config.yaml file with the following content:
+```yaml
+prometheus_url: http://localhost:9090
+cloudwatch_namespace: TEST_NAMESPACE
+
+metrics: # optional, will fecth all metrics if not specified
+  - name: some_metric_name
+    aggregation: sum # optional, possible values: sum, avg, max, min
+```
+4. Set up the cronjob, and the exporter will begin syncing metrics from Prometheus to CloudWatch.
 
 ## Configuration
 
